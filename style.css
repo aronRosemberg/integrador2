@@ -6,6 +6,25 @@
     list-style: none;
     
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+/* 
+h1 {
+    font-size: 66px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 51px;
+    font-weight: 700;
+} */
+
+
+
+
 /* .main-container{
     padding: 5px 0;
     display: flex;
@@ -17,7 +36,8 @@
 .section-container{
     display: flex;
     width: 100%;
-    background-color: darkblue;
+    
+    
 }
 
 .navbar-container{
@@ -32,8 +52,253 @@
     padding: 0 30px;
 }
 
+.icon-item{
+    cursor: pointer;
+}
+.cart_container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    
+}
+/*******************************************************************/
+/*carrito*/
+
+.buy_cart {
+    margin-bottom: 20px;
+}
+
+.cart {
+    color: white;
+    position: absolute;
+    background: #252525;
+    border-radius: 0 0 0 15px;
+    top: 0;
+    right: 0;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 99;
+    /* min-width: 390px; */
+    width: 40%;
+    /* transform: translate(200%); */
+    /* transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99); */
+}
+ /*aca se carga el contenido */
+/* .cart_container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: aqua;
+} */
+
+.cart_total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+
+.title_cart {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.total_cart {
+    color: yellow;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.sub_cart_container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart_subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text_sub_cart {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn_container_cart {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.divider {
+    margin-top: 20px;
+    border: 0.5px solid #9D9D9D66;
+    width: 100%;
+}
+
+
+
 /**************************/
 
+/*Toggle del carro*/
+
+.img_carrito {
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: none;
+}
+
+.show_overlay {
+    display: block;
+}
+
+.open_cart {
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.cart::-webkit-scrollbar {
+    display: none;
+}
+
+
+.btn {
+    background: linear-gradient(98.81deg, #FFA100 -0.82%,#FB103D 101.53%);
+    box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn.btn_header {
+    border-radius: 15px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+
+.disable_buy {
+    cursor: not-allowed;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: gray;
+}
+
+.cart_empty {/*msj de no hay productos en el carrito*/
+    padding: 30px;
+    color: #FFA100;
+}
+
+.card {/*aca se renderiza todas las card */
+    background: #252525;
+    box-shadow: 0px 0px 50px rgba(1, 2, 7, 0.9);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+    padding: 10px 10px;
+    color: #FFFFFF;
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    opacity: 0.9;
+    background-color: #2e2c2c;
+    transform: scale(1.1);
+}
+
+.btn_card {/*boton para agregar , sumar o restar*/
+    border-radius: 15px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 70%;
+    font-weight: 600;
+    cursor: pointer;
+    width: 85px;
+}
+
+.btn_buy { /*boton comprar del carrito*/
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+
+.btn_close { /*boton para cerrar carrito*/
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.text_card {/*toda la data de todas las card*/
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.title_card {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.subtitle_card {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.3;
+    line-height: 17px;
+    width: 90%;
+    letter-spacing: 0.5px;
+}
+
+.price_card {/*precio de todas las card*/
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 131.02%;
+    background: linear-gradient(58.81deg, var(--gradient1) -1%, var(--gradient2) 53%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.img {  /*imagen de reco y carrito de compra*/
+    width: 62px;
+    height: 62px;
+    border-radius: 12px;
+}
+
+/**********************************************************************/
 .interaction-container{
     display: flex;
     gap: 10px;
@@ -96,39 +361,47 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    width: 40%;
+    height: 100%;
 }
 
 .coleccion-container{
-    height: 420px;
+    height: 480px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
+  
 }
 
 .coleccion-products{
     display: flex;
     gap: 30px;
+    
 }
 
 
 .card-coleccion{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     background-color: white;
     width: 280px;
-    height: 350px;
+    height: 380px;
+    border: 1px solid black;
     border-radius: 20px;
-    gap: 10px;
+    gap: 8px;
+    padding-top: 20px;
 }
 .img-coleccion{
-    width: 220px;
-    height: 260px;
-    border: 1px solid black ;
+    width: 250px;
+    height: 200px;
+   
+   
 }
 
 
@@ -250,12 +523,13 @@
 
 .footer-redesSociales{
     display: flex;
-   
-
-    
 
 }
 .redesSociales-data{
     display: flex;
     gap: 5px;
 }
+
+.hidden{
+    display: none;
+}  
