@@ -4,34 +4,26 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: sans-serif,arial;
     
+    
+
 }
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
 }
-/* 
-h1 {
-    font-size: 66px;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 51px;
-    font-weight: 700;
-} */
 
 
 
-
-/* .main-container{
-    padding: 5px 0;
+ .main-container{
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
-    gap: 3px;
-    background-color: aliceblue;
-} */
+    
+   
+} 
 
 .section-container{
     display: flex;
@@ -40,13 +32,22 @@ h2 {
     
 }
 
-.navbar-container{
-    min-width: 1200px;
+.section-navbar{
+    background-color: black;
+    height: 80px;
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.navbar-container{
+    max-width: 1200px;
+    display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    background-color: rosybrown;
+    background-color: black;
     margin: 0 auto;
     height: 60px;
     padding: 0 30px;
@@ -54,6 +55,7 @@ h2 {
 
 .icon-item{
     cursor: pointer;
+    font-size: 1.4rem;
 }
 .cart_container {
     display: flex;
@@ -301,13 +303,37 @@ h2 {
 /**********************************************************************/
 .interaction-container{
     display: flex;
-    gap: 10px;
+    gap: 20px;
+    color: white;
 }
 
+.busqueda{
+    border: 0.1px solid white;
+    padding: 2px 5px;
+    display: flex;
+    background-color:black;
+    gap: 5px;
+
+}
+
+.busquedaTexto{
+    border: none;
+    background-color: black; 
+    color: white;
+
+}
+
+.busquedaTexto:focus{
+    outline: none;
+}
+
+
 .nav-container{
+   
     height: 60px;
     display: flex;
     align-items: center;
+   
 }
 
 .nav-menu{
@@ -323,9 +349,11 @@ h2 {
 }
 
 .navbar-opcion{
+    cursor: pointer;
     font-size: 1.2rem;
     text-align: center;
-    font-weight: 600;  
+    font-weight: 700;  
+    
 }
 
 .section-main{
@@ -356,6 +384,8 @@ h2 {
 }
 
 .portada-info{
+    color: white;
+    background-color: #333232;
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -366,20 +396,38 @@ h2 {
     height: 100%;
 }
 
+.portada-button{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+}
+.portada-button a{
+    
+    
+    color: black;
+    font-size: 1rem;
+    font-weight: 550;
+}
 .coleccion-container{
-    height: 480px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
+    
+    flex-wrap: wrap;
   
 }
 
 .coleccion-products{
     display: flex;
     gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     
 }
 
@@ -406,27 +454,31 @@ h2 {
 
 
 .categories-container{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
     
-    display:grid;
-    grid-template-rows: 1fr;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
-    height: 500px;
+    grid-template-rows: 1fr;
+
 }
 
 .categories-card{
-    
-
+    padding-bottom: 20px;
+   
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    gap: 10px;
+   
 }
 
 .categories-img{
-    width: 250px;
-    height: 300px;
+    width:100%;
+    height: 350px;
 }
 
 .categories-info{
@@ -434,9 +486,31 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
 }
+
+.categories-data{
+    
+    max-width: 250px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+
+.categories-button{
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+}
+.categories-button{
+    color:white;
+}
+
 /* .section-background{
     
 } */
@@ -454,6 +528,7 @@ h2 {
 }
 
 .portada-data{
+    color: white;
     display: flex;
     flex-direction: column;
     gap: 20px;  
@@ -461,6 +536,17 @@ h2 {
     left: 30px;
     text-align: left;
   
+}
+
+.portada-centrada{
+    margin:auto;
+    
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    text-align: left;
+
 }
 
 .portada-background-drive{
@@ -484,6 +570,7 @@ h2 {
     display: flex;
     margin: 0 auto;
     align-items: center;
+    
 }
 
 .services-card{
@@ -492,6 +579,7 @@ h2 {
     justify-content: center;
     align-items:center;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .barra-separadora{
@@ -502,11 +590,16 @@ h2 {
 }
 
 .footer-container{
+   
     margin: 0 auto;
- 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    grid-row: 1fr;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items:baseline;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 100px;
+
 }
 
 

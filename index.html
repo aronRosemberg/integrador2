@@ -10,13 +10,15 @@
 </head>
 <body>
     <div class="main-container">
-        <header class="section-container" >
+        <header class="section-container section-navbar" >
             <div class="navbar-container">
                 <img class="logo-img" src="" alt="">      
                 <div class="interaction-container">
                     <div class="busqueda icon-item" ><!--imput de busqueda-->     
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text">
+                       
+                        <label for="search"> <i class="fa-solid fa-magnifying-glass"></i></label>
+                        
+                        <input class="busquedaTexto" id="search" type="text">
                     </div>
                     <div id="button-card" class="cart_container button-cart icon-item">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -58,7 +60,7 @@
                             <p class="title_cart">Total:</p>
                             <div class="finish_price">
                                 <span class="total_cart">$</span>
-                                <span class="total_cart" id="precio_total">$0</span>
+                                <span class="total_cart" id="precio_total">0</span>
                             </div>
                         </div>
                         <div class="btn_container_cart">
@@ -71,7 +73,9 @@
                 </div>
             </div>
         </header>
-    
+
+        <!-- -------------------------------------------------------------- -->
+        
         <nav class="section-container nav-container" >
             <ul class="nav-menu">
                 <li class="navbar-opcion">Zapatillas Sportwear</li>
@@ -80,7 +84,9 @@
                 <li class="navbar-opcion">Zapatillas de Training</li>
             </ul>
         </nav>
-    
+
+        <!-- -------------------------------------------------------------- -->
+        
         <main class="section-main">
             <section class="portada-container section-container">
                 <div class="portada-img" ><img src="./img/Street gato federations.jpg" alt=""></div>
@@ -98,7 +104,9 @@
                     <!--    aca precizamente-->
                 </div>
             </section>
-    
+
+            <!-- -------------------------------------------------------------- -->
+            
             <section class="portada-container section-container">
                 <div class="portada-info">
                     <h2 class="portada-tittle">RUNNING FUTSAL CALLE</h2>
@@ -107,13 +115,15 @@
                 </div>
                 <div class="portada-img"><img src="./img/persona running.jpg" alt=""></div>
             </section>
+
+            <!-- -------------------------------------------------------------- -->
             
             <section class="categories-container section-container">
                 <div class="categories-card">
                     <img class="categories-img" src="./img/persona running1.webp" alt="">
                     <div class="categories-info">
-                        <h2 class="categories-tittle">CARRERAS CORTAS</h2>
-                        <P class="categories-info">PARA QUIENES QUIEREN MANTENERSE EN FORMA Y HACEN DEL RUNNING PARTE DE SU RUTINA DE ENTRENAMIENTO.</P>
+                        <h3 class="categories-tittle">CARRERAS CORTAS</h3>
+                        <P class="categories-data">PARA QUIENES QUIEREN MANTENERSE EN FORMA Y HACEN DEL RUNNING PARTE DE SU RUTINA.</P>
                         <button class="categories-button"><a href="">conoce la coleccion</a></button>
                     </div>
                 </div>
@@ -121,8 +131,8 @@
                 <div class="categories-card">
                     <img class="categories-img" src="./img/persona running2.jpg" alt="">
                     <div class="categories-info">
-                        <h2 class="categories-tittle">CARRERAS MEDIAS</h2>
-                        <P class="categories-info">PARA LOS QUE HACEN DEL RUNNING SU ENTRENAMIENTO HABITUAL SIN DEJAR EL CONFORT DE LADO.</P>
+                        <h3 class="categories-tittle">CARRERAS MEDIAS</h3>
+                        <P class="categories-data">PARA LOS QUE HACEN DEL RUNNING SU ENTRENAMIENTO HABITUAL SIN DEJAR EL CONFORT DE LADO.</P>
                         <button class="categories-button"><a href="">conoce la coleccion</a></button>
                     </div>
                 </div>
@@ -130,32 +140,39 @@
                 <div class="categories-card">
                     <img class="categories-img" src="./img/pernosa running 3.jpg" alt="">
                     <div class="categories-info">
-                        <h2 class="categories-tittle">CARRERAS LARGAS</h2>
-                        <P class="categories-info">PARA LOS QUE HACEN DEL RUNNING SU ESTILO DE VIDA Y BUSCAN SUPERARSE A DIARIO.</P>
+                        <h3 class="categories-tittle">CARRERAS LARGAS</h3>
+                        <P class="categories-data">PARA LOS QUE HACEN DEL RUNNING SU ESTILO DE VIDA Y BUSCAN SUPERARSE A DIARIO.</P>
                         <button class="categories-button"><a href="">conoce la coleccion</a></button>
                     </div>
                 </div>
             </section>
             
+            <!-- -------------------------------------------------------------- -->
+
             <section class="portada-container  section-container">
                 <div class="portada-background-pwr">
-                    <div class="portada-data">
+                    <div class="portada-data ">
                         <h2 class="portada-tittle">PWR XX NITRO</h2>
                         <p class="portada-description">SAFARI GLAM</p>
-                        <button class="partada-button"><a href="">COMPRAR</a></button>
+                        <button class="portada-button"><a href="">COMPRAR</a></button>
                     </div>
                 </div>
             </section>
                         
+            <!-- -------------------------------------------------------------- -->
+
             <section class="portada-container  section-container">
                 <div class="portada-background-drive">
-                    <div  class="portada-data">
+                    <div  class=" portada-centrada">
                         <h2 class="portada-tittle">DRIVE THEM CRAZY</h2>
                         <p  class="portada-description">FURURE 1.4</p>
-                        <button  class="partada-button"><a href="">COMPRAR</a></button>
+                        <button  class="portada-button"><a href="">COMPRAR</a></button>
                     </div>
                 </div>
             </section>
+
+            <!----------------------------------------------------------------->
+
             <section class="services-container section-container">
                 <div class="services-data">
                     <div class="services-card">
@@ -185,7 +202,9 @@
                 </div>
             </section>
         </main>
-    
+        
+        <!-- -------------------------------------------------------------- -->
+
         <footer class="footer-container section-container">
             <div  class="footer-nav footer-seccions">
                 <h3 class="fotter-tittles">NOVEDADES</h3>

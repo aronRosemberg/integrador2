@@ -7,7 +7,7 @@ const subTotal = document.getElementById('sub_cart')//precio subtotal
 const sellCart = document.getElementById('sell_cart')// LO MAS IMPORTANTE , es donde se renderiza los objetos en el carrito
 const coleccionContainer = document.getElementById('nueva-coleccion-container') // aca se renderiza nueva coleccion
 
-
+const botonesAgregar = document.querySelectorAll('.btn_card');
 /* Carrito de compras */
 
 
@@ -35,9 +35,9 @@ const renderCompra = (producto) => {//se renderiza objeto en el carrito de compr
                     <p class = "subtitle_card" >${producto.data}</p> 
                     <span class="price_card">$ ${producto.precio} </span> 
                 </div> 
-                <button class = "btn btn_card" data-id = ${producto.id} data-resta = "resta">-</button>
+                <button class = "btn btn_card buttonAgregar" data-id = ${producto.id} data-resta="resta">-</button>
                 <span id = "cant_item" data-id = ${producto.id}>${producto.cant}</span>
-                <button class = "btn btn_card" data-id = ${producto.id} >+</button>
+                <button class = "btn btn_card buttonAgregar" data-id = ${producto.id} data-suma="suma">+</button>
             </div> 
             `
 }
@@ -64,7 +64,7 @@ const toggleCart = () => {
     cartMenu.classList.remove('hidden');//mostrar todo el carrito 
     //cartMenu.classList.toggle('open_cart');//muestra el carrito
     overlay.classList.add('show_overlay');//muestra el overlay
-    //sellCart.addEventListener('click', buyItems)//para aumentar o disminuir la cantidad de productos
+    //  sellCart.addEventListener('click', buyItems)//para aumentar o disminuir la cantidad de productos
     precioTotal.textContent = setPrecio(carrito)//renderiza el precio total
     subTotal.textContent = setPrecio(carrito)//renderiza el precio total
 
@@ -147,10 +147,7 @@ const addCarrito = (e) => {
 
     if (e.target.classList.contains("buttonAgregar")) {//node nodeName devuleve la etiqueta html 
         
-        tag = e.target.getAttribute('data-id');
-
-        
-       
+        tag = e.target.getAttribute('data-id');//devuelve lo que tiene data id
         const producto = products.find(item => item.id == tag)//devuelve el objeto
         let existente = carrito.find(prod => prod.id == producto.id)//devuelve la card del carrito
         
@@ -168,7 +165,7 @@ const addCarrito = (e) => {
         }else{
 
             existente.cant = existente.cant + 1 ;
-             //carrito = [...carrito, { ...existente , cant: (existente.cant + 2)}];
+          
            
             saveCarrito(carrito);
             subTotal.textContent = setPrecio(carrito);
@@ -185,6 +182,63 @@ const addCarrito = (e) => {
 
 }
 
+const sumarProductos = (e) =>{
+    if(e.target.dataset.suma=="suma"){
+       
+        const idTarjeta = e.target.getAttribute('data-id');
+        //let producto = carrito.find(prod => prod.id == Number( idTarjeta));//producto encontrado
+        
+        carrito = carrito.map(prod => {
+            return prod.id == idTarjeta
+              ? { ...prod, cant: prod.cant + 1 }
+              : prod;
+          }
+        )
+        saveCarrito(carrito);
+        subTotal.textContent = setPrecio(carrito);
+        precioTotal.textContent = setPrecio(carrito);
+        renderCarrito();
+    };
+
+    }
+
+
+const restarProductos = (e) =>{
+    if(e.target.dataset.resta=="resta"){
+        const idTarjeta = e.target.getAttribute('data-id');
+        const objetoEncontrado = carrito.find(product => product.id == idTarjeta);
+        if(objetoEncontrado.cant == 1 ){
+            
+            carrito=carrito.filter( producto => producto.id != objetoEncontrado.id);
+            saveCarrito(carrito);
+            subTotal.textContent = setPrecio(carrito);
+            precioTotal.textContent = setPrecio(carrito);
+            renderCarrito();
+            checkCarrito(carrito);
+            
+        }else{
+            carrito = carrito.map(prod => {
+                return prod.id == idTarjeta
+                  ? { ...prod, cant: prod.cant - 1 }
+                  : prod;
+              }
+            )
+            saveCarrito(carrito);
+            subTotal.textContent = setPrecio(carrito);
+            precioTotal.textContent = setPrecio(carrito);
+            renderCarrito();         
+        }       
+    }
+
+};
+
+
+const modificarCantDeProducts= (e) =>{
+    sumarProductos(e);
+    restarProductos(e);
+
+}
+
 /******************************/
 
 
@@ -193,7 +247,7 @@ const renderPage = () => {
     renderCarrito();//renderiza el carrito vacio o lo que este en el LS
     renderNuevaColeccion();
     coleccionContainer.addEventListener('click', addCarrito)//agregar en el carrito
-    
+    cartMenu.addEventListener("click",modificarCantDeProducts)
  
 
 }
