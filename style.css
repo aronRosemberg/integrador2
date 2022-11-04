@@ -623,6 +623,11 @@ html {
     gap: 5px;
 }
 
+.pagos-info{
+    width: 80px;
+    height: 40px;
+}
+
 .hidden{
     display: none;
 }  
