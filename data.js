@@ -15,7 +15,7 @@ const categories = [{
 
 
 
-//cortas , medias ,largas - sportwear , futbol , running training
+//cortas , medias ,largas - sportwear , futbol , running y training
 const products = [
     {
         
@@ -34,7 +34,7 @@ const products = [
         precio: 299,
         data: 'solo para expertos',
         img: './img/products/2.png',
-        cat: 'running training',
+        cat: 'running',
         nuevoColeccion:false
     },
     {
@@ -63,7 +63,7 @@ const products = [
         precio: 299,
         data: 'solo para expertos',
         img: './img/products/5.png',
-        cat: 'running training',
+        cat: 'running',
         nuevoColeccion:false
 
     },
@@ -115,7 +115,7 @@ const products = [
         precio: 299,
         data: 'solo para expertos',
         img: './img/products/10.jpg',
-        cat: 'running training',
+        cat: 'running',
         nuevoColeccion:false
 
     },
@@ -135,7 +135,7 @@ const products = [
         precio: 299,
         data: 'solo para expertos',
         img: './img/products/12.jpg',
-        cat: 'running training',
+        cat: 'running',
         nuevoColeccion:false
 
     },

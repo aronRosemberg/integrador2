@@ -68,7 +68,26 @@
                             <span>Ver más Productos</span>
                         </div>
                     </div>
-    
+                    <!-- hidden usuario-->
+                    
+                    <div id="login-container" class="login-container hidden">
+                        <div class="login-usuario">
+                            <div class="btn btn-login btn_close">X</div>
+                            <h2>DISFRUTÁ DE LOS BENEFICIOS DE FUTSAL CALLE AL INICIAR SESIÓN</h2>
+                            <p>Conseguí envío gratis, cupones de descuento y productos exclusivos cuando sos parte adiClub</p>
+                            <div class="inicio-secion">
+                                <h2 class="tittle-sesion" >INICIAR SESION</h2>
+                                <input class="input " type="email" placeholder="   Correo Eleccitronico">
+                                <input class="input" type="email" placeholder="   Comfirme su Email">
+                                <input class="input" type="password" placeholder="   Contrasenia">
+                                <div class="buttons-opcion">
+                                    <button class="opcion-sesion"  id="iniciar-sesion">INICIAR SESION</button>
+                                    <button class="opcion-sesion" >olvido su contrasenia ?</button>
+                                </div> 
+                            </div>
+                        </divlogin-usuario>
+                    </div>
+                    <!-- hidden overlay-->
                     <div class="overlay"></div>
                 </div>
             </div>
@@ -77,12 +96,17 @@
         <!-- -------------------------------------------------------------- -->
         
         <nav class="section-container nav-container" >
-            <ul class="nav-menu">
-                <li class="navbar-opcion">Zapatillas Sportwear</li>
-                <li class="navbar-opcion">Zapatillas de Futbol</li>
-                <li class="navbar-opcion">Zapatillas de Running</li>
-                <li class="navbar-opcion">Zapatillas de Training</li>
+            <ul id="nav-menu" class="nav-menu">
+                <li class="navbar-opcion" data-cat="sportwear">Zapatillas Sportwear</li>
+                <li class="navbar-opcion" data-cat="futbol">Zapatillas de Futbol</li>
+                <li class="navbar-opcion" data-cat="running">Zapatillas de Running</li>
+              
             </ul>
+            <div id="categorias-container" class="categorias-container hidden">
+                <div class="btn-categories btn btn_close">X</div>
+                <div id="categorias-render" class="categorias-render"></div>
+            </div>
+            
         </nav>
 
         <!-- -------------------------------------------------------------- -->

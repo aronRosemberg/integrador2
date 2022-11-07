@@ -1,22 +1,36 @@
 
+/* Carrito de compras */
 
 const cantProductos = document.querySelector('.counter_cart')//cantidad de productos en el carrito
 const btnBuy = document.querySelector('.btn_buy')//boton comprar del carrito
 const precioTotal = document.getElementById('precio_total')//precio total del carrito
 const subTotal = document.getElementById('sub_cart')//precio subtotal
 const sellCart = document.getElementById('sell_cart')// LO MAS IMPORTANTE , es donde se renderiza los objetos en el carrito
-const coleccionContainer = document.getElementById('nueva-coleccion-container') // aca se renderiza nueva coleccion
-
-const botonesAgregar = document.querySelectorAll('.btn_card');
-/* Carrito de compras */
-
-
 const overlay = document.querySelector('.overlay');//overlay
 const cartMenu = document.querySelector('.cart');//carrito en general
 const btnClose = document.querySelector('.btn_close');//boton que cierra el carrito 
-// const cartBtn = document.querySelector('.cart_container');// icom carrito del navbar
-
 const cartBtn = document.getElementById('button-card');// icom carrito del navbar
+//const botonesAgregar = document.querySelectorAll('.btn_card');
+
+/* login**/
+
+const loginConainer= document.getElementById('login-container');//login en general
+const loginUsuario= document.querySelector('.login-usuario');//boton iniciar sesion
+const btnLogin = document.querySelector('.btn-login');// boton cerrar
+const usuarioIcons=document.querySelector('.usuario-icons'); //icons de usuario
+//btn-login
+/******categorias */
+
+const categoriasContainer = document.getElementById('categorias-container');//caja donde se renderiza los productos de categoria 
+const renderContainer = document.getElementById('categorias-render');//donde se va a rasterizar los productos 
+const navMenu=document.getElementById('nav-menu');//aca estas las obciones de categorias
+
+/***nueva coleccion */
+
+const coleccionContainer = document.getElementById('nueva-coleccion-container') // aca se renderiza nueva coleccion
+
+
+
 
 let carrito = JSON.parse(localStorage.getItem("compras")) || [];
 
@@ -48,7 +62,7 @@ const renderCarrito = () => {
 }
 
 const checkCarrito = (carrito) => {//si no hay productos , desabilitar compra
-    console.log("hasta desavilitar bien")
+    
     if (carrito.length === 0) {
         btnBuy.classList.remove( 'btn_buy')//aca retire algo    
         btnBuy.classList.add('disable_buy')
@@ -94,29 +108,76 @@ const compraFinal = () => {
         precioTotal.textContent = setPrecio(carrito);
         subTotal.textContent = setPrecio(carrito);
         renderCarrito();
-        cantProductos.textContent = cantTotalproductos()
+        cantProductos.textContent = cantTotalproductos();
     }
 };
+/******************** login ******************** */
 
-/***************************************************/
-//renderizar nueva coleccion 
 
-const renderCardNuevaColeccion = (objeto) =>{
+// loginConainer
+// loginUsuario
+// btnLogin
+// usuarioIcons
+
+
+const abrirLogin= (e)=>{
+
+    loginConainer.classList.remove('hidden');
+
+}
+
+const CerrarLogin = (e) =>{
+    loginConainer.classList.add('hidden');
+}
+
+
+
+
+/*************************************** */
+//render por categorias
+
+const renderCardPruducto = (objeto) =>{
     const { id,name,precio,data,img,cat} = objeto;
     return `
     <div class="card-coleccion">
         <img class="img-coleccion" src=${img} alt="">
         <h3 class="card-title"> ${name}</h3>
         <p>${data}</p>
-        <span>${precio}</span>
+        <span>$ ${precio}</span>
         <button class="buttonAgregar" data-id=${id} data-category=${cat} >AGREGAR AL CARRITO</button>
     </div>
     `
 }
 
+const renderCategoria = (e) =>{
+    const producto = e.target.dataset.cat;
+    if(producto){
+        categoriasContainer.classList.remove('hidden');
+    }else{
+        return;
+    }
+
+    const filtrado = products.filter(product => product.cat == producto );
+    console.log(filtrado);
+    renderContainer.innerHTML=filtrado.map(renderCardPruducto).join('');
+
+}
+
+const cerrarRenderCategorias = (e)=>{
+    if(e.target.classList.contains('btn-categories')){
+        categoriasContainer.classList.add('hidden');
+    }
+    
+}
+
+/***************************************************/
+//renderizar nueva coleccion 
+
+
+
 const renderNuevaColeccion = () =>{
     const filtrado = products.filter(product => product.nuevoColeccion )
-    coleccionContainer.innerHTML=filtrado.map(renderCardNuevaColeccion).join('');
+    coleccionContainer.innerHTML=filtrado.map(renderCardPruducto).join('');
     
 
 }
@@ -128,7 +189,7 @@ const cantTotalproductos = () => {//devuelve la cant total de todos los producto
     let totalProductos = 0
     carrito.forEach(prod =>
         totalProductos = totalProductos + prod.cant)
-  
+    return totalProductos
 }        
 //calcular precio 
 const setPrecio = (carrito) => {//devuelve el precio total de todos los productos
@@ -174,7 +235,7 @@ const addCarrito = (e) => {
                 
         }
         
-         cantProductos.textContent = cantTotalproductos();//actualiza el contador con la cant total de productos
+        cantProductos.textContent = cantTotalproductos();//actualiza el contador con la cant total de productos
     }else {
         return;
     }
@@ -198,6 +259,7 @@ const sumarProductos = (e) =>{
         subTotal.textContent = setPrecio(carrito);
         precioTotal.textContent = setPrecio(carrito);
         renderCarrito();
+        cantProductos.textContent = cantTotalproductos();
     };
 
     }
@@ -210,6 +272,7 @@ const restarProductos = (e) =>{
         if(objetoEncontrado.cant == 1 ){
             
             carrito=carrito.filter( producto => producto.id != objetoEncontrado.id);
+            cantProductos.textContent = cantTotalproductos();
             saveCarrito(carrito);
             subTotal.textContent = setPrecio(carrito);
             precioTotal.textContent = setPrecio(carrito);
@@ -223,6 +286,7 @@ const restarProductos = (e) =>{
                   : prod;
               }
             )
+            cantProductos.textContent = cantTotalproductos();
             saveCarrito(carrito);
             subTotal.textContent = setPrecio(carrito);
             precioTotal.textContent = setPrecio(carrito);
@@ -252,68 +316,26 @@ const renderPage = () => {
 
 }
 
-const prueba = (e) => {
-
-    
-    if (e.target.classList.contains("buttonAgregar")) {//node nodeName devuleve la etiqueta html 
-        
-        tag = e.target.getAttribute('data-id');
-
-        // tag = e.target.getAttribute('data-id')
-       
-        const producto = products.find(item => item.id == tag)//devuelve el objeto
-        let existente = carrito.find(prod => prod.id == producto.id)//devuelve la card del carrito
-        
-        if (!existente ) {//si no existe el elemnto en el carrito
-           
-            //cart = [...cart, { ...product, quantity: 1 }];
-            carrito = [...carrito, {...producto , cant: 1}];
-            
-            saveCarrito(carrito);
-            renderCarrito();            
-            console.log("bien hasta aca");
-            subTotal.textContent = setPrecio(carrito);
-            precioTotal.textContent = setPrecio(carrito);
-            
-        }else{
-
-            existente.cant = existente.cant + 1 ;
-             //carrito = [...carrito, { ...existente , cant: (existente.cant + 2)}];
-           
-            saveCarrito(carrito);
-            subTotal.textContent = setPrecio(carrito);
-            precioTotal.textContent = setPrecio(carrito);
-            renderCarrito();
-                
-        }
-        
-         cantProductos.textContent = cantTotalproductos();//actualiza el contador con la cant total de productos
-    }else {
-        console.log("no encontro el boton agregar")
-    }
-
-}
 
 init = () => {
   
   
 
      window.addEventListener('DOMContentLoaded', renderPage);//renderizar la pagina en general , incluyendo carrito 
-   
+     cantProductos.textContent = cantTotalproductos();
     cartBtn.addEventListener('click', toggleCart);
-   
     btnClose.addEventListener('click', closeCart);
- 
     window.addEventListener('scroll', closeOnScroll);
- 
-    cantProductos.textContent = cantTotalproductos();
-
     btnBuy.addEventListener('click', compraFinal);
-    
-    //coleccionContainer.addEventListener('click', prueba);
-    //console.log(carrito);
+    navMenu.addEventListener('click',renderCategoria);
+    categoriasContainer.addEventListener('click',cerrarRenderCategorias);
+    usuarioIcons.addEventListener('click',abrirLogin);
+    btnLogin.addEventListener('click', CerrarLogin);
     console.log("hasta aqui bien 7");
 }
 
-
+// loginConainer
+// loginUsuario
+// btnLogin
+// usuarioIcons
 init();
