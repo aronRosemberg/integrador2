@@ -347,12 +347,13 @@ html {
 }
 
 .login-usuario{
-    
+
     margin: 0 auto;
+    height: 80%;
     width: 400px;
-    background-color: black;
+    background:darkblue;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     gap: 20px;
@@ -459,6 +460,14 @@ html {
     border-radius: 20px;
     border: none;
 
+
+}
+
+.navbar-opcion:hover{
+    padding: 12px;
+    background-color: rgb(237, 122, 21);
+    color: white;
+   
 }
 .categorias-container{
    

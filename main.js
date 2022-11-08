@@ -15,7 +15,7 @@ const cartBtn = document.getElementById('button-card');// icom carrito del navba
 /* login**/
 
 const loginConainer= document.getElementById('login-container');//login en general
-const loginUsuario= document.querySelector('.login-usuario');//boton iniciar sesion
+const categoriasRender= document.getElementById('categorias-render');//donde se renderizan el contenido
 const btnLogin = document.querySelector('.btn-login');// boton cerrar
 const usuarioIcons=document.querySelector('.usuario-icons'); //icons de usuario
 //btn-login
@@ -120,13 +120,13 @@ const compraFinal = () => {
 // usuarioIcons
 
 
-const abrirLogin= (e)=>{
+const abrirLogin= ()=>{
 
     loginConainer.classList.remove('hidden');
 
 }
 
-const CerrarLogin = (e) =>{
+const CerrarLogin = () =>{
     loginConainer.classList.add('hidden');
 }
 
@@ -158,7 +158,7 @@ const renderCategoria = (e) =>{
     }
 
     const filtrado = products.filter(product => product.cat == producto );
-    console.log(filtrado);
+  
     renderContainer.innerHTML=filtrado.map(renderCardPruducto).join('');
 
 }
@@ -310,7 +310,8 @@ const renderPage = () => {
 
     renderCarrito();//renderiza el carrito vacio o lo que este en el LS
     renderNuevaColeccion();
-    coleccionContainer.addEventListener('click', addCarrito)//agregar en el carrito
+    coleccionContainer.addEventListener('click', addCarrito);//agregar en el carrito
+    
     cartMenu.addEventListener("click",modificarCantDeProducts)
  
 
@@ -329,13 +330,10 @@ init = () => {
     btnBuy.addEventListener('click', compraFinal);
     navMenu.addEventListener('click',renderCategoria);
     categoriasContainer.addEventListener('click',cerrarRenderCategorias);
+    categoriasRender.addEventListener('click',addCarrito);
     usuarioIcons.addEventListener('click',abrirLogin);
     btnLogin.addEventListener('click', CerrarLogin);
     console.log("hasta aqui bien 7");
 }
 
-// loginConainer
-// loginUsuario
-// btnLogin
-// usuarioIcons
 init();
