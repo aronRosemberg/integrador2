@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQueris.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Integrador</title>
 </head>
@@ -12,7 +13,8 @@
     <div class="main-container">
         <header class="section-container section-navbar" >
             <div class="navbar-container">
-                <img class="logo-img" src="" alt="">      
+                <a class="logo-img" href="./index.html"><img  src="./img/logo futsal calle2.png" alt=""> </a>
+                 
                 <div class="interaction-container">
                     <div class="busqueda icon-item" ><!--imput de busqueda-->     
                        
@@ -97,14 +99,17 @@
         
         <nav class="section-container nav-container" >
             <ul id="nav-menu" class="nav-menu">
-                <li class="navbar-opcion" data-cat="sportwear">Zapatillas Sportwear</li>
+                <li class="navbar-opcion" data-cat="running">Zapatillas Running</li>
                 <li class="navbar-opcion" data-cat="futbol">Zapatillas de Futbol</li>
-                <li class="navbar-opcion" data-cat="running">Zapatillas de Running</li>
+                <li class="navbar-opcion" data-cat="training">Zapatillas de Training</li>
               
             </ul>
             <div id="categorias-container" class="categorias-container hidden">
                 <div class="btn-categories btn btn_close">X</div>
-                <div id="categorias-render" class="categorias-render"></div>
+                <!-- aca se renderiza los productos de categoria-->
+                <div id="categorias-render" class="categorias-render">
+
+                </div>
             </div>
             
         </nav>
@@ -112,13 +117,13 @@
         <!-- -------------------------------------------------------------- -->
         
         <main class="section-main">
-            <section class="portada-container section-container">
-                <div class="portada-img" ><img src="./img/Street gato federations.jpg" alt=""></div>
-                <div class="portada-info">
+            <section class="section-container">
+                <div class="portada-img" ><img src="./img/street gato bueno.jpg" alt=""></div>
+                <!-- <div class="portada-info">
                     <h2 class="portada-tittle">STREET GATO FEDERATIONS</h2>
                     <button class="portada-button"><a href="">conoce la coleccion</a></button>
                     
-                </div>
+                </div> -->
             </section>
             <!-- aca se renderiza nueva coleccion-->
 
@@ -131,42 +136,42 @@
 
             <!-- -------------------------------------------------------------- -->
             
-            <section class="portada-container section-container">
+            <!-- <section class="portada-container section-container">
                 <div class="portada-info">
                     <h2 class="portada-tittle">RUNNING FUTSAL CALLE</h2>
                     <button class="portada-button"><a href="">conoce la coleccion</a></button>
     
                 </div>
                 <div class="portada-img"><img src="./img/persona running.jpg" alt=""></div>
-            </section>
+            </section> -->
 
             <!-- -------------------------------------------------------------- -->
             
             <section class="categories-container section-container">
                 <div class="categories-card">
-                    <img class="categories-img" src="./img/persona running1.webp" alt="">
+                    <img class="categories-img" src="./img/categorias-img/ninios-portada.jpg" alt="">
                     <div class="categories-info">
-                        <h3 class="categories-tittle">CARRERAS CORTAS</h3>
+                        <h3 class="categories-tittle">NINIOS</h3>
                         <P class="categories-data">PARA QUIENES QUIEREN MANTENERSE EN FORMA Y HACEN DEL RUNNING PARTE DE SU RUTINA.</P>
-                        <button class="categories-button"><a href="">conoce la coleccion</a></button>
+                        <button class="categories-button"><a href="./ninio/ninios.html">conoce la coleccion</a></button>
                     </div>
                 </div>
                 
                 <div class="categories-card">
-                    <img class="categories-img" src="./img/persona running2.jpg" alt="">
+                    <img class="categories-img" src="./img/categorias-img/mujer-portada.jpg" alt="">
                     <div class="categories-info">
-                        <h3 class="categories-tittle">CARRERAS MEDIAS</h3>
+                        <h3 class="categories-tittle">MUJERES</h3>
                         <P class="categories-data">PARA LOS QUE HACEN DEL RUNNING SU ENTRENAMIENTO HABITUAL SIN DEJAR EL CONFORT DE LADO.</P>
-                        <button class="categories-button"><a href="">conoce la coleccion</a></button>
+                        <button class="categories-button"><a href="./mujeres/mujeres.html">conoce la coleccion</a></button>
                     </div>
                 </div>
     
                 <div class="categories-card">
-                    <img class="categories-img" src="./img/pernosa running 3.jpg" alt="">
+                    <img class="categories-img" src="./img/categorias-img/hombre-portada.png" alt="">
                     <div class="categories-info">
-                        <h3 class="categories-tittle">CARRERAS LARGAS</h3>
+                        <h3 class="categories-tittle">HOMBRES</h3>
                         <P class="categories-data">PARA LOS QUE HACEN DEL RUNNING SU ESTILO DE VIDA Y BUSCAN SUPERARSE A DIARIO.</P>
-                        <button class="categories-button"><a href="">conoce la coleccion</a></button>
+                        <button class="categories-button"><a href="./hombres/hombres.html">conoce la coleccion</a></button>
                     </div>
                 </div>
             </section>
@@ -174,7 +179,7 @@
             <!-- -------------------------------------------------------------- -->
 
             <section class="portada-container  section-container">
-                <div class="portada-background-pwr">
+                <div class="portada-background-pwr" id="">
                     <div class="portada-data ">
                         <h2 class="portada-tittle">PWR XX NITRO</h2>
                         <p class="portada-description">SAFARI GLAM</p>
@@ -186,7 +191,7 @@
             <!-- -------------------------------------------------------------- -->
 
             <section class="portada-container  section-container">
-                <div class="portada-background-drive">
+                <div class="portada-background-drive" id="">
                     <div  class=" portada-centrada">
                         <h2 class="portada-tittle">DRIVE THEM CRAZY</h2>
                         <p  class="portada-description">FURURE 1.4</p>
@@ -226,6 +231,7 @@
                 </div>
             </section>
         </main>
+
         
         <!-- -------------------------------------------------------------- -->
 

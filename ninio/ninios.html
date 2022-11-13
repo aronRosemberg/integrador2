@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>NINIOS</title>
+</head>
+<body>
+   <div class="main-container">
+        <header class="section-container section-navbar" >
+            <div class="navbar-container">
+                <a class="logo-img" href="../index.html"><img  src="../img/logo futsal calle2.png" alt=""> </a>
+                     
+                <div class="interaction-container">
+                    <div  class="busqueda icon-item" ><!--imput de busqueda-->     
+                       
+                        <label for="search"> <i class="fa-solid fa-magnifying-glass"></i></label>
+                        
+                        <input class="busquedaTexto" id="search" type="text">
+                    </div>
+                    <div id="button-card" class="cart_container button-cart icon-item">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="counter_cart">0</div>                  
+                    </div>
+                    <div class="usuario-icons icon-item">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div id="menu-icons" class="menu-icons icon-item hidden">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <!-- aca comienza la logica del carrito-->
+                    <div class="cart hidden">
+                        <div class="close_cart">
+                            <button class="btn btn_close">X</button>
+                        </div>
+                        <h2 class="title_cart">Tus Productos</h2>
+
+                        <!--aca se carga el contenido del carrito-->
+                        <div class="cart-container" id="sell_cart"></div>
+    
+                        <div class="sub_cart_container">
+                            <div class="cart_subtotal">
+                                <p class="text_sub_cart">Subtotal:</p>
+                                <div class="sub_price">
+                                    <span class="text_sub_cart">$</span>
+                                    <span class="text_sub_cart" id="sub_cart">$0</span>
+                                </div>
+                            </div>
+                            <div class="cart_subtotal">
+                                <p class="text_sub_cart">Envio</p>
+                                <span class="text_sub_cart">Gratis</span>
+                            </div>
+                        </div>
+    
+                        <span class="divider"></span>
+    
+                        <div class="cart_total">
+                            <p class="title_cart">Total:</p>
+                            <div class="finish_price">
+                                <span class="total_cart">$</span>
+                                <span class="total_cart" id="precio_total">0</span>
+                            </div>
+                        </div>
+                        <div class="btn_container_cart">
+                            <button class="btn btn_buy">Comprar</button>
+                            <span>Ver más Productos</span>
+                        </div>
+                    </div>
+                    <!-- hidden usuario-->
+                    
+                    <div id="login-container" class="login-container hidden">
+                        <div class="login-usuario">
+                            <div class="btn btn-login btn_close">X</div>
+                            <h2>DISFRUTÁ DE LOS BENEFICIOS DE FUTSAL CALLE AL INICIAR SESIÓN</h2>
+                            <p>Conseguí envío gratis, cupones de descuento y productos exclusivos cuando sos parte futsal calle clup</p>
+                            <div class="inicio-secion">
+                                <h2 class="tittle-sesion" >INICIAR SESION</h2>
+                                <input class="input " type="email" placeholder="   Correo Eleccitronico">
+                                <input class="input" type="email" placeholder="   Comfirme su Email">
+                                <input class="input" type="password" placeholder="   Contrasenia">
+                                <div class="buttons-opcion">
+                                    <button class="opcion-sesion"  id="iniciar-sesion">INICIAR SESION</button>
+                                    <button class="opcion-sesion" >olvido su contrasenia ?</button>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hidden overlay-->
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- -------------------------------------------------------------- -->
+        
+        <main class="section-main">
+            
+            
+            <section class="section-container">
+                <div class="products-container categorias-container">
+                    <h2 class="products-tittle">NINIOS</h2>
+                    <div class="products-render categorias-render" id="products-ninios">
+                        
+                    </div>
+                </div>
+            </section>
+            <img src="./topper-ninio/1.webp" alt="">
+            <!----------------------------------------------------------------->
+
+            <section class="services-container section-container">
+                <div class="services-data">
+                    <div class="services-card">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <div class="services-info">
+                            <h3 class="services-tittle">ENTREGA GARANTIZADA</h3>
+                            <p class="services-description">RECIBA SU PRODUCTO O LE DEVOLVEMOS SU DINERO</p>
+                        </div>
+                       
+                    </div>
+                    <div class="barra-separadora"></div>
+                    <div class="services-card">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <div class="services-info">
+                            <h3 class="services-tittle">PAGUE COMO QUIERA</h3>
+                            <p class="services-description">PAGUE HASTA EN 12 CUOTAS USANDO SU TARJETA</p>
+                        </div>
+                    </div>
+                    <div class="barra-separadora"></div>
+                    <div class="services-card">
+                        <i class="fa-solid fa-lock"></i>
+                        <div class="services-info">
+                            <h3 class="services-tittle">100% SEGURO</h3>
+                            <p class="services-description">SITIO SEGURO CON CERTIFICADO SSL</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- -------------------------------------------------------------- -->
+
+        <footer class="footer-container section-container">
+            <div  class="footer-nav footer-seccions">
+                <h3 class="fotter-tittles">NOVEDADES</h3>
+                <div class="novedades-data">
+                    <p class="novedades-info" >sobre nosotros</p>
+                    <p class="novedades-info" >politicas de privacidad</p>
+                    <p class="novedades-info" >preguntas frecuentes</p>
+                    <p class="novedades-info" >cambios y devoluciones</p>
+                    <p class="novedades-info" >contacto</p>
+                </div>
+            </div>
+            <div  class="footer-pagos footer-seccions">
+                <h3 class="fotter-tittles">FORMAS DE PAGO</h3>
+                <div class="pagos-data">
+                    
+                    <img class="pagos-info" src="../img/logos-banco/american express.png" alt="">
+                    <img class="pagos-info" src="../img/logos-banco/interbank.png" alt="">
+                    <img class="pagos-info" src="../img/logos-banco/mastercad.png" alt="">
+                    <img class="pagos-info" src="../img/logos-banco/mercado pago.jpg" alt="">
+                    <img class="pagos-info" src="../img/logos-banco/scotiabank.png" alt="">
+                    <img class="pagos-info" src="../img/logos-banco/yape.png" alt="">
+                </div>
+    
+            </div>
+    
+            <div  class="footer-contacto footer-seccions">
+                <h3 class="fotter-tittles">CONTACTO</h3>
+                <div class="cantacto-data">
+                    <p class="contacto-info"><i class="fa-solid fa-phone"></i>123456789</p>
+                    <p class="contacto-info"><i class="fa-regular fa-envelope"></i>williamKbro@gmail.com</p>
+                    <p class="contacto-info"><i class="fa-solid fa-location-dot"></i>Manzana L lote 5</p>
+                </div>
+    
+            </div>
+    
+            <div class="footer-redesSociales footer-seccions">
+                <h3 class="fotter-tittles">REDES SOCIALES</h3>
+                <div class="redesSociales-data">
+                    <div class="redesSociales-info"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="redesSociales-info"><i class="fa-brands fa-facebook"></i></div>
+                    <div class="redesSociales-info"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="redesSociales-info"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="redesSociales"><i class="fa-brands fa-twitter"></i></div> 
+                </div>         
+            </div>
+        </footer>
+     
+    </div>
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+    
+</body>
+</html>

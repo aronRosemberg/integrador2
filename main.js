@@ -25,12 +25,18 @@ const categoriasContainer = document.getElementById('categorias-container');//ca
 const renderContainer = document.getElementById('categorias-render');//donde se va a rasterizar los productos 
 const navMenu=document.getElementById('nav-menu');//aca estas las obciones de categorias
 
-/***nueva coleccion */
+/***nueva coleccion***/
 
 const coleccionContainer = document.getElementById('nueva-coleccion-container') // aca se renderiza nueva coleccion
 
+/******** renderizado de las otras paginas */
+
+const productsNinios = document.getElementById('products-ninios');
+const productsMujeres = document.getElementById('products-mujeres');
+const productsHombres = document.getElementById('products-hombres');
 
 
+/*************************************************************/
 
 let carrito = JSON.parse(localStorage.getItem("compras")) || [];
 
@@ -114,12 +120,6 @@ const compraFinal = () => {
 /******************** login ******************** */
 
 
-// loginConainer
-// loginUsuario
-// btnLogin
-// usuarioIcons
-
-
 const abrirLogin= ()=>{
 
     loginConainer.classList.remove('hidden');
@@ -169,6 +169,35 @@ const cerrarRenderCategorias = (e)=>{
     }
     
 }
+
+/************************** render en las demas paginas */
+
+const renderProcutsInNinios = () =>{
+    const filtrado1 = products.filter(product => product.cat == 'futbol' );
+
+    console.log(filtrado1)
+
+    productsNinios.innerHTML =filtrado1.map(renderCardPruducto).join('');
+}
+
+const renderProcutsInHombre = () =>{
+    const filtrado2 = products.filter(product => product.cat == 'hombre' );
+    console.log(filtrado2)
+    productsHombres.innerHTML = filtrado2.map(renderCardPruducto).join('');
+}
+
+const renderProcutsInMujer = () =>{
+    const filtrado3 = products.filter(product => product.cat == 'mujer' );
+    console.log(filtrado3)
+    productsMujeres.innerHTML = filtrado3.map(renderCardPruducto).join('');
+}
+
+const renderOfPaginas = () => {
+    renderProcutsInNinios();
+    // renderProcutsInHombre;
+    // renderProcutsInMujer();
+}
+
 
 /***************************************************/
 //renderizar nueva coleccion 
@@ -321,9 +350,9 @@ const renderPage = () => {
 init = () => {
   
   
-
-     window.addEventListener('DOMContentLoaded', renderPage);//renderizar la pagina en general , incluyendo carrito 
-     cantProductos.textContent = cantTotalproductos();
+    
+    window.addEventListener('DOMContentLoaded', renderPage);//renderizar la pagina en general , incluyendo carrito 
+    cantProductos.textContent = cantTotalproductos();
     cartBtn.addEventListener('click', toggleCart);
     btnClose.addEventListener('click', closeCart);
     window.addEventListener('scroll', closeOnScroll);
@@ -333,6 +362,8 @@ init = () => {
     categoriasRender.addEventListener('click',addCarrito);
     usuarioIcons.addEventListener('click',abrirLogin);
     btnLogin.addEventListener('click', CerrarLogin);
+    
+    
     console.log("hasta aqui bien 7");
 }
 
